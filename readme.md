@@ -1,7 +1,9 @@
-Read File created. Author: Priyanka Goyal
+# Student Majors Exercise - Read File created. 
+
+## Author: Priyanka Goyal
 
 -------------------------------------------
-PRE-REQs CHECK
+##PRE-REQs CHECK:
 
 RHEL 7
 python3 --version: 3.7.11
@@ -9,7 +11,9 @@ git --version: 1.8.3.1
 -------------------------------------------
 
 -------------------------------------------
-PREPARATIONS:
+##PREPARATIONS:
 
-Initialized git enabled cu_project directory
+1. Initialized git enabled cu_project directory to track all commits
+2. Used ```create_db.py``` to create a SQLite3 local db
+3. Created 'answers.py' to submit answers to the data exercise
 
