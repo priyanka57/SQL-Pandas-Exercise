@@ -18,7 +18,7 @@ Project readme file created.
 4. Added a new unique record to the student table.
 -------------------------------------------
 ## QUESTIONS:
-1. Anwer written using Sub query and Multiple INNER JOINS. 
+1. Anwer written using Sub query and Multiple INNER JOINS - two methods added. 
 2. Answer written using Left Joins, aggregate functions like COUNT(), SUM() and using GROUP BY. 
-3. Export CSV file from the database using Pandas.
-4. Import CSV file into the database using Pandas.
+3. Export CSV file from the database using Pandas. Use ```export_csv.py``` to run the Python script separately.
+4. Import CSV file into the database using Pandas. Use ```import_csv.py``` to run the Python script separately.
