@@ -16,3 +16,6 @@ INNER JOIN
 student s on s.id = sm.student_id
 order by s.last_name asc;
 
+# How many students are there per major and major department?
+
+

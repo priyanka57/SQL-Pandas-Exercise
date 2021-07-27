@@ -18,3 +18,5 @@ Project readme file created.
 4. Added a new unique record to the student table.
 -------------------------------------------
 ## QUESTIONS:
+1. Anwer written using Sub query and Multiple INNER JOINS. 
+2. 
