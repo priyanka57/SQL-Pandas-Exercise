@@ -10,7 +10,7 @@ INSERT INTO student (id, first_name, last_name, dob) VALUES (7, 'Priyanka', 'Goy
 ### What students by first name, last name, and major name sorted alphabetically by last name have majors from the Engineering or Language Arts departments?
 select s.first_name, s.last_name, major_name 
 from student_major sm 
-inner join 
+INNER JOIN 
 (select m.id as maj_id, m.major_name from major m 
 INNER JOIN
 (SELECT d.id as depart_id from department d where d.department_name in ('Engineering', 'Language Arts'))
@@ -23,7 +23,7 @@ ORDER BY s.last_name asc;
 # Another way
 select s.first_name, s.last_name, TEMP.major_name 
 from student_major sm 
-inner join 
+INNER JOIN
 (SELECT m.id as maj_id, m.major_name from major m where m.department_id in (
 SELECT d.id as depart_id from department d where d.department_name in ('Engineering', 'Language Arts'))) as TEMP
 on sm.major_id = TEMP.maj_id
@@ -53,4 +53,40 @@ on d.id = depart_id
 GROUP BY d.id;
 
 
-### Exporting Dataset to csv
+### Exporting Dataset from the Database to the CSV file
+import sqlite3
+import pandas as pd
+import os
+
+# Get path of the current working directory
+dirpath = os.getcwd()
+DB_CONN = dirpath + "/student_major.db"
+OUTPUT_CSV = dirpath + "/question_three.csv"
+
+# Question query
+query = "SELECT res.first_name as first_name, " \
+        "res.last_name as last_name, m.major_name as major_name" \
+        " from (select s.first_name, s.last_name, sm.major_id" \
+        " from student_major sm LEFT join student s" \
+        " on s.id = sm.student_id) as res INNER join" \
+        " major m on res.major_id = m.id;"
+
+try:
+    # Connect to database
+    conn = sqlite3.connect(DB_CONN)
+    # Read SQL query and create an object from the database connection
+    table = pd.read_sql_query(query, conn)
+    # write to the csv
+    table.to_csv(OUTPUT_CSV, index=False)
+
+# Print error, if any
+except sqlite3.Error as e:
+    print(e)
+
+# Close database connection
+finally:
+    conn.close()
+
+
+
+
