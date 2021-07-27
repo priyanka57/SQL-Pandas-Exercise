@@ -19,4 +19,5 @@ Project readme file created.
 -------------------------------------------
 ## QUESTIONS:
 1. Anwer written using Sub query and Multiple INNER JOINS. 
-2. 
+2. Answer written using Left Joins, aggregate functions like COUNT(), SUM() and using GROUP BY. 
+3. 
